@@ -246,6 +246,10 @@ class DataGenerator {
     if (!username || username.length === 0) {
       username = this.scrambledWord(4, 10).toLowerCase();
     }
+    
+    if (emailSettings.usernamePrefix) {
+      username = SanitizeText(emailSettings.usernamePrefix) + username;
+    }
 
     let domain = '';
 
@@ -261,13 +265,8 @@ class DataGenerator {
     if (domain.indexOf('@') === -1) {
       domain = `@${domain}`;
     }
-    
-    let prefix = '';
-    if (emailSettings.prefix) {
-      prefix = SanitizeText(emailSettings.prefix);
-    }
 
-    return prefix + username + domain;
+    return username + domain;
   }
 
   public website(): string {
