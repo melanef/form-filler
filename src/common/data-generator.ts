@@ -261,8 +261,13 @@ class DataGenerator {
     if (domain.indexOf('@') === -1) {
       domain = `@${domain}`;
     }
+    
+    let prefix = '';
+    if (emailSettings.prefix) {
+      prefix = SanitizeText(emailSettings.prefix);
+    }
 
-    return username + domain;
+    return prefix + username + domain;
   }
 
   public website(): string {
