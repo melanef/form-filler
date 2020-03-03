@@ -87,6 +87,7 @@ class GeneralSettingsForm extends React.PureComponent<IOwnProps> {
     initialValues.emailSettingsUsernameType = this.props.options.emailSettings.username;
     initialValues.emailSettingsUsernameList = this.props.options.emailSettings.usernameList.join(', ');
     initialValues.emailSettingsUsernameRegEx = this.props.options.emailSettings.usernameRegEx;
+    initialValues.emailSettingsUsernamePrefix = this.props.options.emailSettings.usernamePrefix;
 
     return (
       <Formik
@@ -130,6 +131,12 @@ class GeneralSettingsForm extends React.PureComponent<IOwnProps> {
                   label={GetMessage('generalSettings_label_username_regExTextPlaceholder')}
                 />
                 <TextField name="emailSettingsUsernameRegEx" placeholder={GetMessage('enterCsv')} />
+
+                <TextField 
+                  name="emailSettingsUsernamePrefix" 
+                  placeholder={GetMessage('generalSettings_label_username_prefixTextPlaceholder')} 
+                  label={{GetMessage('generalSettings_label_username_prefix')}}
+                />
               </div>
             </div>
 
